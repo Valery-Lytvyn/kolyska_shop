@@ -1,0 +1,12 @@
+@import "../../assets/scss_styles/global-imports";
+
+.social-media-icons {
+   @include flex-center-vert;
+   gap: .5rem;
+   order: 0;
+
+
+   @include _768 {
+      order: 1;
+   }
+}

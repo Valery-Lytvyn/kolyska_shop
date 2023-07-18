@@ -1,0 +1,47 @@
+@import "./assets/scss_styles/_global-imports.scss";
+
+#root {
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
+
+  img {
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $clr_light_gray;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $clr_dark_main;
+  border-radius: .5rem;
+  border: 1px solid $clr_light_gray;
+}
+
+.container {
+  width: 90%;
+  // height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: inherit;
+  gap: inherit;
+  flex: 1;
+  flex-direction: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+
+  @include _768 {
+    width: 95%;
+  }
+
+}

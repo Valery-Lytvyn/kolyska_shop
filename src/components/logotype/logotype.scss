@@ -1,0 +1,19 @@
+@import "../../assets/scss_styles/global-imports";
+
+.logo {
+   @include flex-center;
+   width: 170px;
+   height: 50px;
+
+   &:hover {
+      filter: $main_filter;
+   }
+}
+
+.light-style-logo {
+   filter: $white_filter;
+
+   &:hover {
+      filter: $main_filter;
+   }
+}

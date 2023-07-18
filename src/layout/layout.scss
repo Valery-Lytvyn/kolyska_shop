@@ -1,0 +1,37 @@
+@import "../assets/scss_styles/global-imports";
+
+.App {
+   @include flex-column;
+   height: 100%;
+   width: 100%;
+
+   .header,
+   .main,
+   .footer {
+      background: $clr_white;
+      color: $clr_light_black;
+   }
+
+   .main {
+      @include flex-column;
+      flex: 1;
+      font-family: $main_font;
+      position: relative;
+      margin-top: 11rem;
+      padding-bottom: 1rem;
+
+      @include _768 {
+         margin-top: 7rem;
+      }
+   }
+}
+
+.dark-theme {
+
+   .header,
+   .main,
+   .footer {
+      background: $clr_light_black;
+      color: $clr_light_gray;
+   }
+}

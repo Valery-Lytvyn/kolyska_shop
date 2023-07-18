@@ -1,0 +1,125 @@
+@import "../../assets/scss_styles/global-imports";
+
+.shop-blurb {
+   font-family: $title_font;
+   width: 100%;
+   @include flex-center-vert;
+   padding: 10rem 0;
+   background: $clr_dark_main;
+   position: relative;
+
+   @include _992 {
+      flex-direction: column;
+      padding-bottom: 2rem;
+   }
+
+   .shop-blurb-picture-wrap {
+      flex: 1;
+      @include flex-center;
+      position: relative;
+
+      .shop-blurb-picture-back {
+         position: absolute;
+         z-index: 100;
+         background: $clr_dark_main;
+         // width: 32.5rem;
+         // height: 32.5rem;
+      }
+
+      .shop-blurb-picture,
+      .shop-blurb-picture-back {
+         padding: 0 2rem;
+         width: 32.5rem;
+         height: 32.5rem;
+
+         @include _576 {
+            width: 18.75rem;
+            height: 20rem;
+            max-width: 100%;
+         }
+      }
+   }
+
+   .shop-blurb-description {
+      padding: 0 2rem;
+      @include flex-column;
+      gap: 2rem;
+      color: $clr_white;
+      flex: 1;
+
+      .shop-blurb-title {
+         font-size: 3.5rem;
+         font-weight: 700;
+
+         @include _1024 {
+            width: 100%;
+            position: absolute;
+            top: .5rem;
+            left: 50%;
+            transform: translate(-50%, 0);
+            font-size: 3rem;
+            text-align: center;
+         }
+
+         @include _768 {
+            font-size: 2.5rem
+         }
+
+         @include _576 {
+            font-size: 1.8rem
+         }
+      }
+
+      .shop-blurb-navigation {
+         width: fit-content;
+         cursor: pointer;
+         display: flex;
+         gap: 2rem;
+         border-bottom: 1px solid $clr_white;
+         padding-top: 1rem;
+
+         @include _576 {
+            gap: 1rem;
+         }
+
+         .shop-blurb-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #d4c004;
+            padding-bottom: .5rem;
+            border-bottom: 3px solid transparent;
+
+            &:hover {
+               border-bottom: 3px solid $clr_white;
+               color: #ffe600;
+            }
+
+            @include _576 {
+               font-size: 1.2rem;
+            }
+         }
+      }
+
+      .shop-blurb-motto {
+         font-size: 2.5rem;
+         font-weight: 700;
+
+         @include _768 {
+            font-size: 2.0rem
+         }
+
+         @include _576 {
+            font-size: 1.5rem
+         }
+      }
+
+      .shop-blurb-text {
+         font-size: 1.3rem;
+         max-width: 60%;
+
+         @include _1200 {
+            max-width: 100%;
+         }
+      }
+   }
+}

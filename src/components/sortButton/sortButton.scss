@@ -1,0 +1,67 @@
+@import "../../assets/scss_styles/global-imports";
+
+.sort-button {
+   width: 10rem;
+   height: 3rem;
+   padding: 1rem 0;
+   align-self: flex-end;
+   position: relative;
+
+   .text_button {
+      font-size: .8rem;
+      padding: .5rem;
+      background: $clr_main;
+   }
+
+   .sort-button-list {
+      position: absolute;
+      z-index: 100;
+      top: -100%;
+      right: 0;
+      @include flex-center;
+      flex-wrap: wrap;
+      width: 6rem;
+      height: 6rem;
+      transform: rotate(45deg);
+      cursor: pointer;
+
+      .sort-button-item {
+         width: 50%;
+         height: 50%;
+         border: 1px solid $clr_light_gray;
+         line-height: 3rem;
+         text-align: center;
+         font-size: .8rem;
+
+         &:first-child {
+            border-radius: 100% 0 0 0;
+         }
+
+
+         &:nth-child(2) {
+            border-radius: 0 100% 0 0;
+            text-align: start;
+            padding-left: 5px;
+         }
+
+         &:nth-child(3) {
+            border-radius: 0 0 0 100%;
+            text-align: end;
+            padding-right: 5px;
+         }
+
+         &:last-child {
+            border-radius: 0 0 100% 0;
+         }
+
+         &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 1px $clr_main;
+         }
+
+         .sort-button-item-value {
+            transform: rotate(-45deg);
+         }
+      }
+   }
+}

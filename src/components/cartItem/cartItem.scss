@@ -1,0 +1,30 @@
+@import '../../assets/scss_styles/global-imports';
+
+.item-image {
+   height: 240px;
+   width: 240px;
+   flex: 1;
+
+   @include _768 {
+      height: 240px;
+      width: 240px;
+   }
+}
+
+.item-name {
+   flex: 1;
+}
+
+.cost {
+   font-size: 1rem;
+   font-weight: 600;
+}
+
+.trash-button {
+   width: 1.5rem;
+   height: 1.5rem;
+
+   &:hover {
+      @include hover_transform;
+   }
+}

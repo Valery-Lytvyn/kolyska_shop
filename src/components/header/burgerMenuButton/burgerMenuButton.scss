@@ -1,0 +1,17 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.burger-menu-button {
+   width: 3rem;
+   height: 3rem;
+
+   @include _576 {
+      width: 2rem;
+      height: 2rem;
+   }
+
+   @include _576 {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+   }
+}

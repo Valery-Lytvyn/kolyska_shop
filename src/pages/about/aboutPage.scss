@@ -1,0 +1,141 @@
+@import "../../assets/scss_styles/global-imports";
+
+.about-page {
+   padding: 1rem 0;
+   @include flex-column;
+   gap: .5;
+
+   .about-page-image {
+      width: 300px;
+      height: 200px;
+      float: left;
+
+      @include _576 {
+         float: none;
+         text-indent: 0;
+         margin: 0;
+         width: 100%
+      }
+   }
+
+   .about-page-chapter {
+      padding: .5rem 0;
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      letter-spacing: 1px;
+
+      .about-page-text {
+         text-indent: 1.5rem;
+      }
+
+      &:nth-child(odd) {
+         .about-page-image {
+            margin-right: 1rem;
+            border: 1px solid;
+         }
+      }
+
+      .about-page-regards {
+         text-align: end;
+         padding-top: 2rem;
+         font-weight: 600;
+         font-size: 1.3rem;
+
+         @include _576 {
+            padding-top: .5rem;
+            font-size: 1.1rem;
+         }
+      }
+
+
+      .address {
+         font-weight: 500;
+         color: #0243a5;
+         text-decoration: underline;
+         text-shadow: 0 0 20px #008a8f;
+         cursor: pointer;
+
+         &:hover {
+            background: #effab4;
+         }
+      }
+
+
+
+      &:nth-child(even) {
+         .about-page-image {
+            margin-left: 1rem;
+            float: right;
+
+            @include _576 {
+               float: none;
+               text-indent: 0;
+               margin: 0;
+               width: 100%
+            }
+         }
+      }
+   }
+
+   .about-shop-addresses {
+      @include flex-center-column;
+      gap: 1rem;
+
+      .shop-address {
+         padding-top: 2rem;
+         width: 100%;
+         display: flex;
+         gap: .5rem;
+
+         @include _768 {
+            flex-direction: column;
+         }
+
+         &:last-of-type {
+            border-top: 2px solid $clr-gray;
+            flex-direction: row-reverse;
+
+            @include _768 {
+               flex-direction: column;
+            }
+         }
+
+
+         .address-map,
+         .address-description {
+            flex: 1;
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            border-radius: .5rem;
+            overflow: hidden;
+         }
+
+         .address-description {
+            font-family: $title_font;
+            @include flex-center-column;
+            gap: 1rem;
+            position: relative;
+
+            .address-description-title {
+               font-size: 2.5rem;
+               color: $clr_dark_main;
+            }
+
+            .address-description-text {
+               font-size: 1.5rem;
+               font-weight: 600;
+            }
+
+            .address-description--back-picture {
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               bottom: 0;
+               filter: opacity(.3);
+            }
+         }
+      }
+   }
+}

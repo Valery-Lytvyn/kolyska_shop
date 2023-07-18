@@ -1,0 +1,15 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.navbar-item {
+
+   & a {
+      color: inherit;
+      text-decoration: none
+   }
+
+   &:hover {
+      color: $clr_black;
+      text-shadow: 0 0 2px $clr_black;
+      cursor: pointer;
+   }
+}

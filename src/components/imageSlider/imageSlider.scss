@@ -1,0 +1,74 @@
+@import "../../assets/scss_styles/global-imports";
+
+.image-slider {
+   position: relative;
+   height: 100%;
+
+   .lazy-load-image-background {
+      transition-duration: 2s !important;
+   }
+
+   .image-slider-motto {
+      font-family: 'Arsenal', sans-serif;
+      position: absolute;
+      bottom: 0.2rem;
+      left: 0.2rem;
+      z-index: 2;
+      color: $clr_white;
+      text-shadow: 0 1px 1px $clr_black;
+      font-size: 4rem;
+      @include blur-background;
+      padding: 0 2rem;
+      border-radius: .5rem;
+      text-align: end;
+
+      @include _1024 {
+         font-size: 2.5rem;
+      }
+
+      @include _768 {
+         font-size: 2rem;
+         line-height: 1;
+      }
+
+      @include _576 {
+         font-size: 1.2rem;
+         line-height: 1;
+      }
+   }
+
+   .control-buttons {
+
+
+
+      @include _768 {
+         padding: 0;
+      }
+
+      .back-button,
+      .forward-button {
+         position: absolute;
+         z-index: 10;
+         width: 4rem;
+         height: 4rem;
+         filter: $main_filter;
+
+         &:hover {
+            filter: $white_filter;
+            transform: scale(1.1);
+         }
+      }
+
+      .back-button {
+         top: 50%;
+         left: 0;
+         transform: translate(0, -50%);
+      }
+
+      .forward-button {
+         top: 50%;
+         right: 0;
+         transform: translate(0, -50%);
+      }
+   }
+}

@@ -1,0 +1,15 @@
+@import "../../assets/scss_styles/global-imports";
+
+.Toastify__toast-theme--light {
+   background: linear-gradient(180deg, $clr_white 0%, $clr_light_gray 100%);
+   border: 1px solid $clr_light_gray;
+   border-radius: 10px;
+   box-shadow: 0 0 3px 1px $clr_light_gray;
+   font-weight: 300;
+   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+   color: $clr_gray;
+
+   .Toastify__progress-bar {
+      height: 2px;
+   }
+}

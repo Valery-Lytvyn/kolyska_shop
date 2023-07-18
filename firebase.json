@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "site": "kolyska-shop-b9ee1",
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  }
+}

@@ -1,0 +1,98 @@
+@import "../../assets/scss_styles/global-imports";
+
+.single-product {
+   width: 23%;
+   height: 380px;
+   @include flex-column;
+   border: 1px solid $clr_light_gray;
+   border-radius: .5rem;
+   overflow: hidden;
+
+   &:hover {
+      border-color: $clr_main;
+      cursor: pointer;
+
+      .product-picture {
+         @include hover_transform;
+      }
+
+      .product-description {
+         background: #67dcff46;
+      }
+   }
+
+   @include _992 {
+      width: 31%;
+   }
+
+   @include _768 {
+      width: 48%;
+   }
+
+   @include _576 {
+      width: 80%;
+      margin: 0 auto;
+   }
+
+   @include _350 {
+      width: 100%;
+
+   }
+
+   .product-picture {
+      width: 100%;
+      flex: 2;
+      overflow: hidden;
+
+
+
+      @include _768 {
+         flex: 2
+      }
+   }
+
+   .product-description {
+      @include flex-column;
+      justify-content: space-between;
+      flex: 1;
+      padding: 1rem .5rem;
+      gap: .5rem;
+
+
+      .product-name {
+         &:hover {
+            transition: all .5s;
+            color: $clr_main;
+            text-decoration: underline;
+         }
+      }
+
+      .product-cart-image {
+         width: 2.0rem;
+         height: 2.0rem;
+         align-self: center;
+
+         & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+         }
+
+         &:hover {
+            filter: $main_filter;
+            @include hover_transform;
+         }
+      }
+
+      .light-style-product-cart-image {
+         filter: $white_filter;
+      }
+
+      .product-price {
+         font-size: 1.2rem;
+         font-weight: 700;
+         align-self: center;
+      }
+
+   }
+}

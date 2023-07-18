@@ -1,0 +1,16 @@
+@import "../../assets/scss_styles/global-imports";
+
+.image-button {
+   width: 100%;
+   height: 100%;
+   background: none;
+
+   &:hover {
+      transform: scale(1.1);
+      filter: $main_filter;
+   }
+}
+
+.light-style-image-button {
+   filter: $white_filter;
+}

@@ -1,0 +1,25 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.auth-user-info {
+   @include flex-center;
+   gap: 1rem;
+
+   @include _576 {
+      gap: .5rem;
+   }
+
+   .user-info-logo {
+      border-radius: 50%;
+      overflow: hidden;
+   }
+
+   .user-info-display-name {
+      position: absolute;
+      top: 1rem;
+      right: .5rem;
+
+      @include _576 {
+         top: 3.5rem;
+      }
+   }
+}

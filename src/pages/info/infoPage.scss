@@ -1,0 +1,40 @@
+@import "../../assets/scss_styles/global-imports";
+
+.info-page {
+   @include flex-center-column;
+
+   .info-list {
+      width: 100%;
+      @include flex-column;
+      align-items: flex-start;
+
+
+      li:first-child {
+         .chapter-list {
+            .chapter-item {
+               margin-left: 1rem;
+               list-style-type: circle;
+            }
+         }
+      }
+
+      li:nth-child(3n) {
+         .chapter-list {
+            .chapter-item {
+               margin-left: 1rem;
+               list-style-type: circle;
+            }
+
+            li:nth-child(-n+2),
+            li:nth-child(n+6) {
+               list-style-type: none;
+               margin-left: 0;
+            }
+         }
+      }
+
+      .page-subtitle {
+         justify-content: flex-start;
+      }
+   }
+}

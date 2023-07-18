@@ -1,0 +1,51 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.search-bar {
+   position: absolute;
+   z-index: 1000;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 100vw;
+   height: 100vh;
+
+
+   .search-bar-form {
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem;
+      @include flex-center;
+      background: $clr_white;
+      gap: 1rem;
+      min-height: 10.8rem;
+
+      @include _768 {
+         min-height: 6.7rem;
+      }
+
+      & .search-bar-input {
+         background: transparent;
+         padding: .5rem 1rem;
+         font-size: 1.4rem;
+         font-weight: 200;
+         width: 70%;
+         border-bottom: 1px solid $clr_main;
+      }
+
+      .search-bar-btn {
+         width: 1.7rem;
+         height: 1.7rem;
+      }
+   }
+}
+
+.light-style-search-bar {
+   .search-bar-form {
+      background: $clr_light_black;
+
+      & .search-bar-input {
+         color: $clr_white;
+      }
+   }
+}

@@ -1,0 +1,14 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.social-media-icon {
+   width: 1.6rem;
+   height: 1.6rem;
+
+   .image-button {
+
+      &:hover {
+         filter: none;
+      }
+
+   }
+}

@@ -1,0 +1,22 @@
+@import "../../assets/scss_styles/global-imports";
+
+.footer {
+   @include flex-center-vert;
+   justify-content: space-around;
+   flex: 0;
+   padding: 2.5rem 0;
+   border-top: 1px solid $clr_main;
+   font: noto_font;
+
+   @include _576 {
+      flex-direction: column;
+      gap: 2rem;
+   }
+
+   .footer-logo,
+   .footer-contacts {
+      @include flex-column;
+      gap: 1rem;
+      text-align: center;
+   }
+}

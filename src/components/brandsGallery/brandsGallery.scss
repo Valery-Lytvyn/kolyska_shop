@@ -1,0 +1,32 @@
+@import "../../assets/scss_styles/global-imports";
+
+.brands-gallery {
+   @include flex-center-vert;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 1.5rem;
+   padding: 2rem 1rem;
+
+   @include _576 {
+      gap: .5rem;
+   }
+
+   @include _350 {
+      flex-direction: column;
+   }
+
+   .brand {
+      height: 3rem;
+      width: auto;
+
+
+      &:hover {
+         transform: scale(1.1);
+         cursor: pointer;
+      }
+
+      @include _350 {
+         gap: 2rem;
+      }
+   }
+}

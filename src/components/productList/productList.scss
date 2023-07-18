@@ -1,0 +1,14 @@
+@import "../../assets/scss_styles/global-imports";
+
+.product-list {
+   width: 100%;
+   @include flex-center-vert;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 1rem;
+   padding: 1rem 0;
+
+   @include _576 {
+      gap: 2rem;
+   }
+}

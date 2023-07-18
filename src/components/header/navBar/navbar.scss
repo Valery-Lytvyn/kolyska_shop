@@ -1,0 +1,19 @@
+@import "../../../assets/scss_styles/global-imports";
+
+.navbar {
+   @include flex-center;
+   gap: 1rem;
+   width: 100%;
+   background: $clr_light_main;
+   border-bottom: 1px solid $clr_light_gray;
+   padding: .5rem 0;
+
+   @include _768 {
+      width: 100%;
+      justify-content: center;
+   }
+
+   @include _576 {
+      flex-direction: column;
+   }
+}

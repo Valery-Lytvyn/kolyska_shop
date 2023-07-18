@@ -1,0 +1,5 @@
+@import "../../assets/scss_styles/global-imports";
+
+.search-results-page {
+   @include flex-center-column;
+}

@@ -1,0 +1,42 @@
+@import '../../assets/scss_styles/global-imports';
+
+.counter {
+   @include flex-center;
+   border: 1px solid $clr_gray;
+
+   .quantity {
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0 0.8rem;
+      text-align: center;
+   }
+
+
+
+   .counter-buttons {
+      @include flex-center-column;
+      cursor: pointer;
+      border-left: 1px solid $clr_gray;
+
+      .increment,
+      .decrement {
+         width: 1.2rem;
+         height: 1.2rem;
+
+         &:hover {
+            background: $clr_light_gray;
+         }
+      }
+   }
+
+   // .light-style-counter-buttons {
+   //    filter: $white_filter;
+
+   //    .increment,
+   //    .decrement {
+   //       &:hover {
+   //          background: $clr_gray;
+   //       }
+   //    }
+   // }
+}

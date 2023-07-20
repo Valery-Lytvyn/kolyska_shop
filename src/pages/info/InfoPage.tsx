@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "./infoPage.scss";
+import { AnimatePresence, motion } from "framer-motion";
 import PageTitle from "../../components/pageTitle/PageTitle";
 import PageSubtitle from "../../components/pageSubtitle/PageSubtitle";
 import { infoPageData } from "../../constants/infoData";
-import { AnimatePresence, motion } from "framer-motion";
+import "./infoPage.scss";
 
 function InfoPage() {
   const [chapterIndex, setChapterIndex] = useState(0);

@@ -8,8 +8,10 @@ interface NavBarItemProps {
 
 function NavBarItem({ item, link }: NavBarItemProps) {
   return (
-    <li className="navbar-item">
-      <Link to={link}>{item}</Link>
+    <li className="navbar-item-wrap">
+      <Link to={link} className="navbar-item">
+        {item}
+      </Link>
     </li>
   );
 }

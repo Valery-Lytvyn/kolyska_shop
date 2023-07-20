@@ -8,9 +8,9 @@ import {
   ProductCategories,
   productCategories,
 } from "../../constants/productCategories";
-import "./categoryPage.scss";
 import ProductList from "../../components/productList/ProductList";
 import Loader from "../../components/loader/Loader";
+import "./categoryPage.scss";
 
 function CategoryPage() {
   const productsData: Product[] = useSelector(getFilteredProducts);
@@ -21,14 +21,12 @@ function CategoryPage() {
     const category: ProductCategories | undefined = productCategories.find(
       (obj) => obj.category === categoryName
     );
-
     if (category) {
       return category.name;
     } else {
       const subCategory: ProductCategories | undefined = productCategories
         .flatMap((obj) => obj.categories || [])
         .find((obj) => obj.category === categoryName);
-
       if (subCategory) {
         return subCategory.name;
       }

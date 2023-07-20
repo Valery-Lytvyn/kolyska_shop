@@ -51,7 +51,7 @@ const cartSlice = createSlice({
         item.quantity -= 1;
       }
     },
-    countSum: (state, action) => {
+    updateCartTotal: (state, action) => {
       const item = findItem(state, action);
       if (item !== undefined) {
         const price = parseFloat(item.price); // Parse the price as a float
@@ -80,7 +80,7 @@ export const {
   removeItem,
   incrementQuantity,
   decrementQuantity,
-  countSum,
+  updateCartTotal,
   calcAmount,
   resetCart,
 } = cartSlice.actions;

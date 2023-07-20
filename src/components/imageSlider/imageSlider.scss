@@ -39,8 +39,6 @@
 
    .control-buttons {
 
-
-
       @include _768 {
          padding: 0;
       }
@@ -55,7 +53,6 @@
 
          &:hover {
             filter: $white_filter;
-            transform: scale(1.1);
          }
       }
 

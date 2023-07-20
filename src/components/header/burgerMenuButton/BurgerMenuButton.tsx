@@ -1,7 +1,6 @@
-import React from "react";
+import ImageButton from "../../imageButton/ImageButton";
 import burgerMenu from "../../../assets/icon/icons8-menu-64.png";
 import close from "../../../assets/icon/icons8-close-64.png";
-import ImageButton from "../../imageButton/ImageButton";
 import "./burgerMenuButton.scss";
 
 interface BurgerButtonProps {

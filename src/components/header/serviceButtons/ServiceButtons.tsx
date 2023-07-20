@@ -1,26 +1,24 @@
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ImageButton from "../../imageButton/ImageButton";
+import { ROUTES } from "../../../routing/routes";
+import { getQuantity } from "../../../redux/slices/cartSlice";
+import AuthUserInfo from "../authUserInfo/AuthUserInfo";
 import search from "../../../assets/icon/header_icons/icons8-search-64.png";
-
 import cart from "../../../assets/icon/header_icons/icons8-cart-64.png";
 import moon from "../../../assets/icon/header_icons/icons8-moon-64.png";
 import sun from "../../../assets/icon/header_icons/icons8-sun-64.png";
-
-import ImageButton from "../../imageButton/ImageButton";
 import "./serviceButtons.scss";
-import { ROUTES } from "../../../routing/routes";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { getQuantity } from "../../../redux/slices/cartSlice";
-import AuthUserInfo from "../authUserInfo/AuthUserInfo";
 
 interface ServiceButtonsProps {
-  toggleTheme: () => void;
-  handleSearchButtonClick: () => void;
+  toggleThemeHandler: () => void;
+  searchButtonHandler: () => void;
   theme: string;
 }
 
 function ServiceButtons({
-  toggleTheme,
-  handleSearchButtonClick,
+  toggleThemeHandler,
+  searchButtonHandler,
   theme,
 }: ServiceButtonsProps) {
   const currentProductQuantity = useSelector(getQuantity);
@@ -35,14 +33,11 @@ function ServiceButtons({
         <ImageButton
           src={search}
           alt="пошук"
-          clickButtonHandler={handleSearchButtonClick}
+          clickButtonHandler={searchButtonHandler}
           theme={theme}
         />
       </div>
       <Link to={ROUTES.login}>
-        {/* <div className="service-btn">
-          <ImageButton src={user} alt="авторизація" theme={theme} />
-        </div> */}
         <AuthUserInfo />
       </Link>
       <Link to={ROUTES.cart}>
@@ -51,13 +46,13 @@ function ServiceButtons({
           {currentProductQuantity > 0 && (
             <span className="product-quantity">{currentProductQuantity}</span>
           )}
-        </div>{" "}
+        </div>
       </Link>
       <div className="service-btn">
         <ImageButton
           src={theme === "light" ? moon : sun}
           alt="світла/темна тема"
-          clickButtonHandler={toggleTheme}
+          clickButtonHandler={toggleThemeHandler}
           theme={theme}
         />
       </div>

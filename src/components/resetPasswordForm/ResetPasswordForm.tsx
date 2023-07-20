@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../firebase.config";
 import { firebaseErrorMessage } from "../../services/firebaseErrorMessage";
-
 import { TYPE_TOAST } from "../../constants/typeToast";
 import { notification } from "../../services/services";
 

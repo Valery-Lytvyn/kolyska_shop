@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import Logotype from "../logotype/Logotype";
 import NavBar from "./navBar/Navbar";
 import ServiceButtons from "./serviceButtons/ServiceButtons";
-import "./header.scss";
+
 import SearchBar from "./searchBar/SearchBar";
 import { ThemeContext } from "../../layout/Layout";
 import useMatchMedia from "../../hooks/useMatchMedia";
 import BurgerMenuButton from "./burgerMenuButton/BurgerMenuButton";
-import { Product, productCategories } from "../../constants/productCategories";
+import {
+  ProductCategories,
+  productCategories,
+} from "../../constants/productCategories";
 import {
   choiceSelectedCategoryId,
   getRndInteger,
@@ -19,17 +22,20 @@ import { useDispatch } from "react-redux";
 import { filterProductCategory } from "../../redux/slices/productsSlice";
 import SocialMediaIcons from "../socialMediaIcons/SocialMediaIcons";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
+import "./header.scss";
 
 interface HeaderProps {
-  toggleTheme: () => void;
+  toggleThemeHandler: () => void;
 }
 
-function Header({ toggleTheme }: HeaderProps) {
+function Header({ toggleThemeHandler }: HeaderProps) {
   const theme = useContext(ThemeContext);
   const [currentCategory, setCurrentCategory] = useState("");
   const [isSearchBarVisible, setIsSearchBarVisible] = useState(false);
   const [isBurgerBtnVisible, setIsBurgerBtnVisible] = useState(false);
-  const [subcategoryList, setSubcategoryList] = useState<Product[]>([]);
+  const [subcategoryList, setSubcategoryList] = useState<ProductCategories[]>(
+    []
+  );
   const [elementCoordinate, setElementCoordinate] = useState<number[]>([0, 0]);
   const [currentCategoryId, setCurrentCategoryId] = useState(0);
   const isWideScreen = useMatchMedia("(max-width: 768px)");
@@ -37,25 +43,14 @@ function Header({ toggleTheme }: HeaderProps) {
   const dispatch = useDispatch();
 
   const { scrollY } = useScroll();
-  const [hidden, setHidden] = React.useState(false);
-
-  // function update() {
-  //   const prevScrollY = scrollY.getPrevious();
-  //   const currentScrollY = scrollY.get();
-
-  //   if (currentScrollY < prevScrollY) {
-  //     setHidden(false);
-  //   } else if (currentScrollY > 100 && currentScrollY > prevScrollY) {
-  //     setHidden(true);
-  //   }
-  // }
+  const [hidden, setHidden] = useState(false);
 
   const variants = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: -25 },
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     function update() {
       const prevScrollY = scrollY.getPrevious();
       const currentScrollY = scrollY.get();
@@ -75,50 +70,51 @@ function Header({ toggleTheme }: HeaderProps) {
   }, [scrollY]);
 
   useEffect(() => {
-    if (isWideScreen) {
-      setIsBurgerBtnVisible(true);
-    }
+    setIsBurgerBtnVisible(isWideScreen);
   }, [isWideScreen]);
 
-  const toggleBurgerButton = () => {
+  const toggleBurgerButton = useCallback(() => {
     setIsBurgerBtnVisible((prev) => !prev);
     setSubcategoryList([]);
-  };
+  }, []);
 
-  const handleSearchButtonClick = () => {
+  const searchButtonHandler = useCallback(() => {
     setIsSearchBarVisible((prev) => !prev);
-  };
+  }, []);
 
-  const createSubcategoriesList = (
-    category: string,
-    e: React.SyntheticEvent
-  ) => {
-    e.stopPropagation();
-    if (category === currentCategory && subcategoryList.length > 0) {
-      setSubcategoryList([]);
-    } else {
-      setCurrentCategory(category);
-      const filtered = productCategories.filter(
-        (obj) => obj.category === category
-      );
-      const categories: Product[] = subcategoryList?.filter(
-        (obj) => obj.categories
-      );
-      const filteredCategories = categories.filter(
-        (obj) => obj.category === category
-      );
-      const filteredObj = filtered[0] || filteredCategories[0];
+  const createSubcategoriesList = useCallback(
+    (category: string, e: React.SyntheticEvent) => {
+      e.stopPropagation();
 
-      if (!filteredObj || !filteredObj.categories) {
+      if (category === currentCategory && subcategoryList.length > 0) {
         setSubcategoryList([]);
-        const categoryID = choiceSelectedCategoryId(category);
-        setCurrentCategoryId(categoryID);
-        navigateTo(ROUTES.category(category));
       } else {
-        setSubcategoryList([...filteredObj.categories]);
+        setCurrentCategory(category);
+
+        const filtered = productCategories.filter(
+          (obj) => obj.category === category
+        );
+        const categories: ProductCategories[] = subcategoryList.filter(
+          (obj) => obj.categories
+        );
+        const filteredCategories = categories.filter(
+          (obj) => obj.category === category
+        );
+        const filteredObj = filtered[0] || filteredCategories[0];
+
+        if (!filteredObj || !filteredObj.categories) {
+          setSubcategoryList([]);
+
+          const categoryID = choiceSelectedCategoryId(category);
+          setCurrentCategoryId(categoryID);
+          navigateTo(ROUTES.category(category));
+        } else {
+          setSubcategoryList([...filteredObj.categories]);
+        }
       }
-    }
-  };
+    },
+    [currentCategory, subcategoryList]
+  );
 
   useEffect(() => {
     if (currentCategoryId !== 0) {
@@ -126,24 +122,26 @@ function Header({ toggleTheme }: HeaderProps) {
     }
   }, [currentCategoryId]);
 
-  const resetSubcategoryList = () => {
+  const resetSubcategoryList = useCallback(() => {
     setSubcategoryList([]);
-  };
+  }, []);
 
-  const addElementCoordinate = (
-    offsetLeft: number,
-    offsetTop: number,
-    offsetHeight: number
-  ) => {
-    offsetLeft = offsetLeft || elementCoordinate[0];
-    const offsetBottom = offsetHeight + offsetTop;
-    setElementCoordinate([offsetLeft, offsetBottom]);
-  };
+  const addElementCoordinate = useCallback(
+    (offsetLeft: number, offsetTop: number, offsetHeight: number) => {
+      offsetLeft = offsetLeft || elementCoordinate[0];
+      const offsetBottom = offsetHeight + offsetTop;
+      setElementCoordinate([offsetLeft, offsetBottom]);
+    },
+    [elementCoordinate]
+  );
 
-  const navigateTo = (path: string) => {
-    navigator(path);
-    toggleBurgerButton();
-  };
+  const navigateTo = useCallback(
+    (path: string) => {
+      navigator(path);
+      toggleBurgerButton();
+    },
+    [toggleBurgerButton]
+  );
 
   return (
     <motion.header
@@ -191,14 +189,14 @@ function Header({ toggleTheme }: HeaderProps) {
           )}
         </AnimatePresence>
         <ServiceButtons
-          toggleTheme={toggleTheme}
-          handleSearchButtonClick={handleSearchButtonClick}
+          toggleThemeHandler={toggleThemeHandler}
+          searchButtonHandler={searchButtonHandler}
           theme={theme}
         />
       </div>
       <SearchBar
         isVisible={isSearchBarVisible}
-        handleSearchButtonClick={handleSearchButtonClick}
+        searchButtonHandler={searchButtonHandler}
         theme={theme}
       />
       {!isWideScreen && (
@@ -218,40 +216,3 @@ function Header({ toggleTheme }: HeaderProps) {
 }
 
 export default Header;
-
-// const createSubcategoriesList = (
-//   category: string,
-//   e: React.SyntheticEvent
-// ) => {
-//   e.stopPropagation();
-//   if (category === currentCategory && subcategoryList.length > 0) {
-//     setSubcategoryList([]);
-//   } else {
-//     setCurrentCategory(category);
-//     let filtered = productCategories.filter(
-//       (obj) => obj.category === category
-//     );
-//     if (filtered.length === 0) {
-//       const categories: Product[] = subcategoryList?.filter(
-//         (obj) => obj.categories
-//       );
-//       filtered = categories.filter((obj) => obj.category === category);
-//     }
-//     if (!filtered || filtered.length === 0) {
-//       setSubcategoryList([]);
-//       choiceSelectedCategoryId(category);
-//       navigateTo(ROUTES.category(category));
-//     } else {
-//       const filteredObj = filtered?.[0];
-//       if (filteredObj) {
-//         if (filteredObj.categories) {
-//           setSubcategoryList([...filteredObj.categories]);
-//         } else {
-//           setSubcategoryList([]);
-//           choiceSelectedCategoryId(category);
-//           navigateTo(ROUTES.category(category));
-//         }
-//       }
-//     }
-//   }
-// };

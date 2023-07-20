@@ -6,7 +6,6 @@ import instaColorLogo from "../assets/icon/header_icons/icons8-insta-64_color.pn
 import facebookLogo from "../assets/icon/header_icons/icons8-facebook-64.png";
 import facebookColorLogo from "../assets/icon/header_icons/icons8-facebook-64_color.png";
 
-//Navbar
 export const navBarList = [
   { title: "Про нас", link: ROUTES.about },
   { title: "Контакти", link: ROUTES.contact },

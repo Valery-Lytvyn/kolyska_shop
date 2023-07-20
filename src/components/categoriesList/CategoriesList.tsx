@@ -1,16 +1,16 @@
-import CategoryItem from "../categoryItem/CategoryItem";
-import { Product } from "../../constants/productCategories";
-import { getRndInteger } from "../../services/services";
 import { AnimatePresence, motion } from "framer-motion";
+import CategoryItem from "../categoryItem/CategoryItem";
+import { getRndInteger } from "../../services/services";
+import { ProductCategories } from "../../constants/productCategories";
 import "./categoriesList.scss";
 
 interface CategoriesListProps {
-  array: Product[];
-  mouseClickHandler: (arg0: string, e: React.SyntheticEvent) => void;
+  array: ProductCategories[];
+  mouseClickHandler: (category: string, e: React.SyntheticEvent) => void;
   className?: string;
-  subcategory?: Product[];
+  subcategory?: ProductCategories[];
   mouseLeaveHandler: () => void;
-  setCoordinate: (arg0: number, arg1: number, arg2: number) => void;
+  setCoordinate: (x: number, y: number, z: number) => void;
   coordinate: number[];
 }
 
@@ -44,9 +44,7 @@ function CategoriesList({
               top: coordinate[1],
             }}
             className="product-subcategory"
-            onMouseLeave={() => {
-              mouseLeaveHandler();
-            }}
+            onMouseLeave={mouseLeaveHandler}
             initial={{ scaleY: 0, opacity: 0 }}
             animate={{ scaleY: 1, opacity: 1 }}
             exit={{ scaleY: 0, opacity: 0 }}

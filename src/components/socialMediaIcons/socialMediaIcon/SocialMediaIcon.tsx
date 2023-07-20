@@ -1,9 +1,8 @@
 import { useState, useContext } from "react";
 import { SocialMediaIconData } from "../../../constants/headerData";
-import LazyImage from "../../lazyImage/LazyImage";
-import "./socialMediaIcon.scss";
 import ImageButton from "../../imageButton/ImageButton";
 import { ThemeContext } from "../../../layout/Layout";
+import "./socialMediaIcon.scss";
 
 interface SocialMediaIconProps {
   iconData: SocialMediaIconData;

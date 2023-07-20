@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import logo from "../../assets/images/logo.webp";
 import LazyImage from "../lazyImage/LazyImage";
-import "./logotype.scss";
 import { ROUTES } from "../../routing/routes";
 import { Link } from "react-router-dom";
+import "./logotype.scss";
 
 interface LogotypeProps {
   theme: string;

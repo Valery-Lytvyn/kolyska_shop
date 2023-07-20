@@ -13,7 +13,7 @@
       cursor: pointer;
 
       .product-picture {
-         @include hover_transform;
+         @include hover-transform;
       }
 
       .product-description {
@@ -36,15 +36,12 @@
 
    @include _350 {
       width: 100%;
-
    }
 
    .product-picture {
       width: 100%;
       flex: 2;
       overflow: hidden;
-
-
 
       @include _768 {
          flex: 2
@@ -80,7 +77,7 @@
 
          &:hover {
             filter: $main_filter;
-            @include hover_transform;
+            @include hover-transform;
          }
       }
 
@@ -93,6 +90,5 @@
          font-weight: 700;
          align-self: center;
       }
-
    }
 }

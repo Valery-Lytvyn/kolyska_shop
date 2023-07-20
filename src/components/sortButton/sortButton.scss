@@ -16,8 +16,8 @@
    .sort-button-list {
       position: absolute;
       z-index: 100;
-      top: -100%;
-      right: 0;
+      bottom: 0;
+      right: 1.5rem;
       @include flex-center;
       flex-wrap: wrap;
       width: 6rem;

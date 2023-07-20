@@ -3,13 +3,11 @@
 .photo-gallery {
    padding: 1rem 0;
    @include flex-center;
-   // flex-wrap: wrap;
    gap: 2rem;
 
 
    @include _992 {
       flex-wrap: wrap;
-      // justify-content: space-around;
       gap: 1rem;
    }
 

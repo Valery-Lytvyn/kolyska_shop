@@ -10,11 +10,11 @@ import {
 } from "../../redux/slices/cartSlice";
 import CartItem from "../../components/cartItem/CartItem";
 import { ROUTES } from "../../routing/routes";
-import "./cartPage.scss";
 import TextButton from "../../components/textButton/TextButton";
 import PageSubtitle from "../../components/pageSubtitle/PageSubtitle";
 import { notification } from "../../services/services";
 import { TYPE_TOAST } from "../../constants/typeToast";
+import "./cartPage.scss";
 
 function CartPage() {
   const dispatch = useDispatch();
@@ -65,7 +65,6 @@ function CartPage() {
             {cartProducts.map((item) => (
               <CartItem itemData={item} key={item.id} />
             ))}
-
             <div className="cart-total-sum">
               <p>Всього: </p>
               <p className="cost">

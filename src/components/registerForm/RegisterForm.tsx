@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../../firebase.config";
-
 import { TYPE_TOAST } from "../../constants/typeToast";
-
 import { notification } from "../../services/services";
 import { firebaseErrorMessage } from "../../services/firebaseErrorMessage";
 

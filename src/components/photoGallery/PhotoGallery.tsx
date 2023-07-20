@@ -1,10 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import LazyImage from "../lazyImage/LazyImage";
-import "./photoGallery.scss";
 import { ROUTES } from "../../routing/routes";
 import { choiceSelectedCategoryId } from "../../services/services";
-import { useDispatch } from "react-redux";
 import { filterProductCategory } from "../../redux/slices/productsSlice";
+import "./photoGallery.scss";
 
 interface ArrayItem {
   image: string;
@@ -19,9 +19,9 @@ interface PhotoGalleryProps {
 function PhotoGallery({ galleryArray }: PhotoGalleryProps) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const clickHandler = (category: string) => {
     const categoryID = choiceSelectedCategoryId(category);
-
     navigate(ROUTES.category(category));
     dispatch(filterProductCategory(categoryID));
   };

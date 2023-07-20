@@ -5,7 +5,7 @@ interface ImageButtonProps {
   src: string;
   alt: string;
   clickButtonHandler?: () => void;
-  theme: string;
+  theme?: string;
 }
 
 function ImageButton({

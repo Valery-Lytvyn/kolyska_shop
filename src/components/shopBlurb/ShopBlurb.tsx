@@ -1,27 +1,10 @@
 import { useEffect, useState } from "react";
-import "./shopBlurb.scss";
+import { AnimatePresence, motion } from "framer-motion";
 import { blurbArray } from "../../constants/homeData";
 import LazyImage from "../lazyImage/LazyImage";
-import { AnimatePresence, motion } from "framer-motion";
+import "./shopBlurb.scss";
 
 function ShopBlurb() {
-  // const [currentBlurbID, setCurrentBlurbID] = useState(0);
-  // const [isShowPictureBack, setIsShowPictureBack] = useState(false);
-
-  // useEffect(() => {
-  //   setIsShowPictureBack(true);
-  // }, [currentBlurbID]);
-
-  // useEffect(() => {
-  //   if (isShowPictureBack) {
-  //     const timer = setTimeout(() => {
-  //       setIsShowPictureBack(false);
-  //     }, 100);
-  //     return () => {
-  //       clearTimeout(timer);
-  //     };
-  //   }
-  // }, [isShowPictureBack]);
   const [currentBlurbID, setCurrentBlurbID] = useState(0);
   const [isShowPictureBack, setIsShowPictureBack] = useState(false);
 

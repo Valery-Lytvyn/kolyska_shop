@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { getSearchedProducts } from "../../redux/slices/productsSlice";
 import { useParams } from "react-router-dom";
+import { getSearchedProducts } from "../../redux/slices/productsSlice";
 import ProductList from "../../components/productList/ProductList";
 import Loader from "../../components/loader/Loader";
 import { Product } from "../../constants/allProductsData";

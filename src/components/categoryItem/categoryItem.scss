@@ -12,16 +12,9 @@
 
    @include _768 {
       padding: 0.2rem 0.5rem;
-      // border-bottom: 1px solid $clr_main ;
    }
 
    @include _576 {
       width: 100%;
-      // border-bottom: 1px solid $clr_main;
    }
 }
-
-// .not-active {
-//    opacity: .2;
-//    color: red;
-// }

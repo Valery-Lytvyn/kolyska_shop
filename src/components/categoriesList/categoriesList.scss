@@ -4,15 +4,12 @@
    @include flex_center_horiz;
    flex-wrap: wrap;
 
-
    @include _768 {
       padding-top: 1rem;
       gap: 1rem;
-      // color: $clr_dark_main;
       text-shadow: 0 0 1px $clr_black;
    }
 }
-
 
 .product-subcategory {
    position: absolute;
@@ -27,13 +24,10 @@
          @include blur-background;
          color: $clr_black;
       }
-
    }
 
    @include _576 {
       max-width: 100%;
       width: 100%;
-
-
    }
 }

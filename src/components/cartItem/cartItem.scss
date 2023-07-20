@@ -25,6 +25,6 @@
    height: 1.5rem;
 
    &:hover {
-      @include hover_transform;
+      @include hover-transform;
    }
 }

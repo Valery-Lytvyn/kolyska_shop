@@ -1,24 +1,24 @@
 import { useEffect, useContext } from "react";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 import {
   CartData,
-  countSum,
+  updateCartTotal,
   decrementQuantity,
   incrementQuantity,
   removeItem,
 } from "../../redux/slices/cartSlice";
-import "./cartItem.scss";
+import { setCurrentProduct } from "../../redux/slices/productsSlice";
 import LazyImage from "../lazyImage/LazyImage";
 import { currencyConversion, notification } from "../../services/services";
-import trash from "../../assets/icon/icons8-waste-64.png";
 import Counter from "../counter/Counter";
 import { ThemeContext } from "../../layout/Layout";
 import ImageButton from "../imageButton/ImageButton";
-import { setCurrentProduct } from "../../redux/slices/productsSlice";
-import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routing/routes";
 import { TYPE_TOAST } from "../../constants/typeToast";
+import trash from "../../assets/icon/icons8-waste-64.png";
+import "./cartItem.scss";
+
 interface CartItemProps {
   itemData: CartData;
 }
@@ -27,7 +27,6 @@ function CartItem({ itemData }: CartItemProps) {
   const theme = useContext(ThemeContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { id, image, title, price, quantity, total } = itemData;
 
   const incrementQty = () => {
@@ -56,7 +55,7 @@ function CartItem({ itemData }: CartItemProps) {
 
   useEffect(() => {
     dispatch(
-      countSum({
+      updateCartTotal({
         id: id,
       })
     );
@@ -71,15 +70,14 @@ function CartItem({ itemData }: CartItemProps) {
     notification("Товар видалено з кошика", TYPE_TOAST.SUCCESS);
   };
 
+  const handleProductClick = () => {
+    dispatch(setCurrentProduct(id));
+    navigate(ROUTES.product(id));
+  };
+
   return (
     <div className="cart-table">
-      <div
-        className="cart-table-product"
-        onClick={() => {
-          dispatch(setCurrentProduct(id));
-          navigate(ROUTES.product(id));
-        }}
-      >
+      <div className="cart-table-product" onClick={handleProductClick}>
         <div className="item-image">
           <LazyImage src={image} alt={title} />
         </div>

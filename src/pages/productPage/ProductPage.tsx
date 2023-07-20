@@ -1,10 +1,10 @@
 import { useState, useEffect, useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/Loader";
 import LazyImage from "../../components/lazyImage/LazyImage";
 import Counter from "../../components/counter/Counter";
 import { ThemeContext } from "../../layout/Layout";
 import TextButton from "../../components/textButton/TextButton";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getCurrentProduct,
   removeCurrentProduct,
@@ -75,7 +75,6 @@ function ProductPage() {
                     <p>{currencyConversion(price)}</p>
                   </div>
                 )}
-
                 <div className="product-services-part">
                   <Counter
                     quantity={counterValue}

@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { signOut } from "firebase/auth";
 import { getUserData, removeActiveUser } from "../../../redux/slices/authSlice";
 import { resetCart } from "../../../redux/slices/cartSlice";
-import { signOut } from "firebase/auth";
 import { TYPE_TOAST } from "../../../constants/typeToast";
 import { auth } from "../../../firebase.config";
 import {
@@ -62,7 +62,7 @@ function AuthUserInfo() {
       )}
       <div className="service-btn  user-info-logo">
         {userPhoto ? (
-          <img src={userPhoto} alt="user" />
+          <img src={userPhoto} alt="лого користувача" />
         ) : (
           <div className="service-btn">
             <ImageButton src={userIcon} alt="авторизація" theme={theme} />

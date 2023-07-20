@@ -1,31 +1,16 @@
 import { useContext, useState } from "react";
+import { useDispatch } from "react-redux";
 import LazyImage from "../lazyImage/LazyImage";
 import { currencyConversion, notification } from "../../services/services";
-import cart from "../../assets/icon/icons8-buy-64.png";
-import "./singleProduct.scss";
-import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
 import { ThemeContext } from "../../layout/Layout";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../routing/routes";
 import { setCurrentProduct } from "../../redux/slices/productsSlice";
 import { TYPE_TOAST } from "../../constants/typeToast";
-
-interface Description {
-  __cdata?: string;
-}
-
-interface Product {
-  price: string;
-  currencyId: string;
-  categoryId: number;
-  picture: string;
-  name: string;
-  vendor: string;
-  vendorCode: string;
-  description?: Description;
-  barcode?: number;
-}
+import { Product } from "../../constants/allProductsData";
+import cart from "../../assets/icon/icons8-buy-64.png";
+import "./singleProduct.scss";
 
 interface SingleProductProps {
   itemData: Product;
@@ -37,6 +22,7 @@ function SingleProduct({ itemData }: SingleProductProps) {
   const dispatch = useDispatch();
   const theme = useContext(ThemeContext);
   const navigator = useNavigate();
+
   const addProductToCart = () => {
     dispatch(
       addToCart({
@@ -56,7 +42,7 @@ function SingleProduct({ itemData }: SingleProductProps) {
 
   return (
     <>
-      {itemData && (
+      {itemData && price !== "0" && (
         <div
           className="single-product"
           onMouseEnter={() => setIsShowButton(true)}

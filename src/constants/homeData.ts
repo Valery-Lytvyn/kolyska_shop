@@ -1,10 +1,17 @@
-import image4 from "../assets/images/main_banner/pexels-karolina-grabowska-4964488.jpg";
-import image2 from "../assets/images/main_banner/pexels-nataliya-vaitkevich-4452206.jpg";
-import image3 from "../assets/images/main_banner/pexels-oleksandr-canary-islands-1007773.jpg";
-import image1 from "../assets/images/main_banner//pexels-pavel-danilyuk-7055917.jpg";
-import image5 from "../assets/images/main_banner//pexels-rene-asmussen-13027214.jpg";
-import image6 from "../assets/images/main_banner/pexels-vicki-yde-5961616.jpg";
-import image7 from "../assets/images/main_banner/pexels-yan-krukau-5791039.jpg";
+import image4 from "../assets/images/main_banner/pexels-karolina-grabowska-4964488.webp";
+import image2 from "../assets/images/main_banner/pexels-nataliya-vaitkevich-4452206.webp";
+import image3 from "../assets/images/main_banner/pexels-oleksandr-canary-islands-1007773.webp";
+import image1 from "../assets/images/main_banner//pexels-pavel-danilyuk-7055917.webp";
+import image5 from "../assets/images/main_banner//pexels-rene-asmussen-13027214.webp";
+import image6 from "../assets/images/main_banner/pexels-vicki-yde-5961616.webp";
+import image7 from "../assets/images/main_banner/pexels-yan-krukau-5791039.webp";
+import image4_small from "../assets/images/main_banner/pexels-karolina-grabowska-4964488_small.webp";
+import image2_small from "../assets/images/main_banner/pexels-nataliya-vaitkevich-4452206_small.webp";
+import image3_small from "../assets/images/main_banner/pexels-oleksandr-canary-islands-1007773_small.webp";
+import image1_small from "../assets/images/main_banner//pexels-pavel-danilyuk-7055917_small.webp";
+import image5_small from "../assets/images/main_banner//pexels-rene-asmussen-13027214_small.webp";
+import image6_small from "../assets/images/main_banner/pexels-vicki-yde-5961616_small.webp";
+import image7_small from "../assets/images/main_banner/pexels-yan-krukau-5791039_small.webp";
 import trend1 from "../assets/images/trends/egg.webp";
 import trend2 from "../assets/images/trends/icandy.webp";
 import trend3 from "../assets/images/trends/oyster.webp";
@@ -28,42 +35,50 @@ import blurb_pic3 from "../assets/images/shop_blurb/PEACE-OF-MIND.webp";
 
 export interface BannerPhoto {
   image: string;
+  smallImage: string;
   label: string;
   motto: string;
 }
 export const bannerPhotos: BannerPhoto[] = [
   {
     image: image1,
+    smallImage: image1_small,
     label: "banner-image 1",
     motto: " Магазин дитячих колясок, де ваші мрії стають реальністю",
   },
   {
     image: image2,
+    smallImage: image2_small,
     label: "banner-image 2",
     motto: " Шлях до щасливого батьківства починається з наших колясок",
   },
   {
     image: image3,
+    smallImage: image3_small,
     label: "banner-image 3",
     motto: "Зробіть кожну мить особливою з нашими колясками",
   },
   {
     image: image4,
+    smallImage: image4_small,
     label: "banner-image 4",
     motto: "Ліжечка, які створені для безтурботного сну вашої дитини",
   },
   {
     image: image5,
+    smallImage: image5_small,
     label: "banner-image 5",
     motto: "Завжди крокуємо у ногу з вашими потребами",
   },
   {
     image: image6,
+    smallImage: image6_small,
     label: "banner-image 6",
     motto: "Ліжечка, що втілюють ваші бажання",
   },
   {
     image: image7,
+    smallImage: image7_small,
     label: "banner-image 7",
     motto: "Зручність та комфорт у кожній прогулянці",
   },

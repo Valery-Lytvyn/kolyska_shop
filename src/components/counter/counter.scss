@@ -11,8 +11,6 @@
       text-align: center;
    }
 
-
-
    .counter-buttons {
       @include flex-center-column;
       cursor: pointer;
@@ -28,15 +26,4 @@
          }
       }
    }
-
-   // .light-style-counter-buttons {
-   //    filter: $white_filter;
-
-   //    .increment,
-   //    .decrement {
-   //       &:hover {
-   //          background: $clr_gray;
-   //       }
-   //    }
-   // }
 }

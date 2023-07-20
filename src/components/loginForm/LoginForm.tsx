@@ -28,7 +28,7 @@ function LoginForm({ toggleForm, showLoader, hideLoader }: LoginFormProps) {
 
   const loginUser = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    if ((email.length || password.length) === 0) {
+    if (email.length === 0 || password.length === 0) {
       notification("Будь ласка, заповніть усі поля", TYPE_TOAST.ERROR);
     } else {
       showLoader();
@@ -53,8 +53,6 @@ function LoginForm({ toggleForm, showLoader, hideLoader }: LoginFormProps) {
     showLoader();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // const token = credential?.accessToken;
         const user = result.user;
         successfulResultHandler(user);
       })
@@ -79,7 +77,6 @@ function LoginForm({ toggleForm, showLoader, hideLoader }: LoginFormProps) {
     navigate(ROUTES.index);
   };
   const firebaseErrorMessage = (errorMessage: string) => {
-    console.log(errorMessage);
     notification(errorMessage.slice(10), TYPE_TOAST.ERROR);
   };
 

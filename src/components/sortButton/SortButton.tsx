@@ -10,6 +10,7 @@ interface SortButtonProps {
 function SortButton({ requestSort }: SortButtonProps) {
   const [sortButtonValue, setSortButtonValue] = useState("Сортувати");
   const [isShowSortVariants, setIsShowSortVariants] = useState(false);
+
   return (
     <div
       className="sort-button"

@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "./categoryItem.scss";
 
 interface CategoryItemProps {
   categoryName: string;
   category: string;
-  mouseClickHandler: (arg0: string, e: React.SyntheticEvent) => void;
-  setCoordinate: (arg0: number, arg1: number, arg2: number) => void;
+  mouseClickHandler: (category: string, e: React.SyntheticEvent) => void;
+  setCoordinate: (x: number, y: number, z: number) => void;
 }
 
 function CategoryItem({

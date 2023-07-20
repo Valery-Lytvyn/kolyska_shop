@@ -1,1 +1,0 @@
-import{p as a,j as e}from"./index-76d131e7.js";function c(){const s=a();return e.jsxs("div",{className:"",children:[e.jsx("h1",{className:"",children:"Oops!"}),e.jsx("p",{className:"",children:"Sorry, an unexpected error has occurred."}),e.jsx("p",{className:"",children:e.jsx("i",{children:(s==null?void 0:s.statusText)||(s==null?void 0:s.message)})})]})}export{c as default};

@@ -59,10 +59,12 @@ const cartSlice = createSlice({
       }
     },
     calcAmount: (state) => {
-      state.purchasePrice = state.cartData.reduce(
-        (sum, item) => sum + item.total,
-        0
-      );
+      if (state.cartData) {
+        state.purchasePrice = state.cartData.reduce(
+          (sum, item) => sum + item.total,
+          0
+        );
+      }
     },
     removeItem: (state, action) => {
       state.cartData = state.cartData.filter(
@@ -85,8 +87,14 @@ export const {
   resetCart,
 } = cartSlice.actions;
 export const getCartData = (state: RootState) => state.cart.cartData;
-export const getQuantity = (state: RootState) =>
-  state.cart.cartData.reduce((sum, item) => sum + item.quantity, 0);
-export const getPurchasePrice = (state: RootState) =>
-  state.cart.cartData.reduce((sum, item) => sum + item.total, 0);
+export const getQuantity = (state: RootState) => {
+  return state.cart.cartData
+    ? state.cart.cartData.reduce((sum, item) => sum + item.quantity, 0)
+    : 0;
+};
+export const getPurchasePrice = (state: RootState): number => {
+  return state.cart.cartData
+    ? state.cart.cartData.reduce((sum, item) => sum + item.total, 0)
+    : 0;
+};
 export default cartSlice.reducer;

@@ -1,6 +1,5 @@
 import { createHashRouter } from "react-router-dom";
 import { ROUTES } from "./routes";
-import loadable from "@loadable/component";
 
 import {
   HomePage,

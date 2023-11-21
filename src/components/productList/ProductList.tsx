@@ -15,9 +15,13 @@ function ProductList({ productsData }: ProductListProps) {
     <>
       <SortButton requestSort={requestSort} />
       <div className="product-list">
-        {items?.map((item: Product) => (
-          <SingleProduct key={`${item.barcode}${item.name}`} itemData={item} />
-        ))}
+        {items &&
+          items.map((item: Product) => (
+            <SingleProduct
+              key={`${item.barcode}${item.name}`}
+              itemData={item}
+            />
+          ))}
       </div>
     </>
   );
